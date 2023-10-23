@@ -16,7 +16,7 @@ The resources/services/activations/deletions that this module will create/trigge
 
 - Enable required services
 - Create a KMS Key Ring
-- Create a KMS Key
+- Create a KMS Key with never rotate and self service recovery 120 days
 - Update CMEK Configuration for Vertex Search with a null resource
 
 
