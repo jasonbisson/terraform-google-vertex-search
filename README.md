@@ -27,7 +27,6 @@ The resources/services/activations/deletions that this module will create/trigge
 Configuration: 10 mins
 Deployment: 2 mins
 
-
 ## Usage
 ###
 1. Clone repo
@@ -50,11 +49,13 @@ terraform apply
 ```
 4. Create a new data store in Vertex Search
 
+- Collect the Data store ID by clicking on data store name
+
 5. Verify data store is protected with CMEK key
 ```
 export project_id=$(terraform  output -raw project_id)
 export location=$(terraform  output -raw location)
-export datastore="new data store name"
+export datastore="Data store ID"
 
 curl -X GET \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -86,7 +87,10 @@ curl -X GET \
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| location | Name of region |
+| project\_id | Name of Google Cloud Project ID for KMS resources |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -101,12 +105,14 @@ The following dependencies must be available:
 - [Terraform][terraform] v0.13
 - [Terraform Provider for GCP][terraform-provider-gcp] plugin v3.0
 
-### Service Account
+### Deployment Identity roles
 
-A service account with the following roles must be used to provision
+A Identity with the following roles must be used to provision
 the resources of this module:
 
-- Storage Admin: `roles/storage.admin`
+- Cloud KMS Admin: `roles/cloudkms.admin` at project level
+- IAM Policy Admin: `roles/iam.securityAdmin` at project level
+- Service Usage Admin: `roles/serviceusage.serviceUsageAdmin` at project level
 
 
 ### APIs
@@ -114,10 +120,9 @@ the resources of this module:
 A project with the following APIs enabled must be used to host the
 resources of this module:
 
-- Google Cloud Storage JSON API: `storage-api.googleapis.com`
-
-The [Project Factory module][project-factory-module] can be used to
-provision a project with the necessary APIs enabled.
+- IAM: iam.googleapis.com
+- Search & Chat: discoveryengine.googleapis.com
+- KMS: cloudkms.googleapis.com
 
 ## Security Disclosures
 

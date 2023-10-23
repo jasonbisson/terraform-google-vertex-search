@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 output "project_id" {
-  description = "Name of Google Cloud Project ID for Chronicle resources"
+  description = "Name of Google Cloud Project ID for KMS resources"
   value       = var.project_id
 }
 

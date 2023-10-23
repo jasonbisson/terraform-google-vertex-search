@@ -25,7 +25,7 @@ variable "enable_apis" {
 }
 
 variable "activate_apis" {
-  description = "The list of apis to activate for Cloud Function"
+  description = "The list of apis to activate"
   default     = ["iamcredentials.googleapis.com", "iam.googleapis.com", "discoveryengine.googleapis.com", "cloudkms.googleapis.com"]
   type        = list(string)
 }
