@@ -69,7 +69,7 @@ curl -X GET \
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| activate\_apis | The list of apis to activate for Cloud Function | `list(string)` | <pre>[<br>  "iamcredentials.googleapis.com",<br>  "iam.googleapis.com",<br>  "discoveryengine.googleapis.com",<br>  "cloudkms.googleapis.com"<br>]</pre> | no |
+| activate\_apis | The list of apis to activate | `list(string)` | <pre>[<br>  "iamcredentials.googleapis.com",<br>  "iam.googleapis.com",<br>  "discoveryengine.googleapis.com",<br>  "cloudkms.googleapis.com"<br>]</pre> | no |
 | destroy\_scheduled\_duration | Number of days when a KMS key sits in pending destruction. This allows for self service recovery. | `string` | `"10368000s"` | no |
 | disable\_dependent\_services | Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_dependent_services | `string` | `"false"` | no |
 | disable\_services\_on\_destroy | Whether project services will be disabled when the resources are destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_on_destroy | `string` | `"false"` | no |
