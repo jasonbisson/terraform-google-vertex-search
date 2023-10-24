@@ -4,6 +4,8 @@
 ### Detailed
 This module will create a Customer Managed key with the required attributes for Vertex Search. The required attributes are the following
 
+- Project must added to private preview
+
 - Keys cannot be changed (or rotated).
 
 - After a key has been registered, it cannot be deregistered or removed from a data store.
